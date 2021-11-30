@@ -1,0 +1,328 @@
+                  Java Reflection
+-)    Java Reflection is the mechanism by which all a class's capabilities are evaluated and updated at runtime. The Java Reflection API is used to modify classes and their members at runtime, including fields, methods, builders, etc.
+ one benefit of the reflection API is that it can also manipulate private members of the class.
+
+The java.lang.reflect module includes multiple classes for the implementation of java.lang.Class reflections. The java.lang.Class methods are used to collect the full metadata of a specific class.
+
+Class in Package java.lang.reflect
+
+---------The following is a list of different Java classes to implement reflection in the java.lang.package.
+
+#Field:
+This class uses to collect declarative information such as variable name, data type, access modifier, variable name, and meaning.
+
+#Method:
+This class uses to collect declarative information. Then such as the access modifier of the process. Besides, this includes return type, name, parameter types, and type of exception.
+
+#Constructor:
+This class uses to gather declarative information. Besides, includes the access modifier, name, and parameter types of a constructor.
+
+#Modifier:
+This class uses to collect information about a specific modifier for entry.
+
+
+
+---------Methods used in the java.lang.Class function
+
+GetName() Public String:
+Returns the name of the class.
+
+Public Class getSuperclass():
+Returns access to the superclass
+
+Public Class[] getInterfaces():
+Returns an array of interfaces that the defined class has implemented.
+
+Public in getModifiers():
+Returns an integer value representing the modifiers of the specified class that must be passed as the 'public static String to String (int I parameter, returning the access specifier for the specified class).
+
+-----How to get full information about a class
+
+To get details about a class's variables, methods, and constructors, we need to create a class object.
+
+ClassObjectCreation Public Class {
+
+ClassNotFoundException { is thrown by the public static void key (String[] args)
+
+/1 - By using a method called Class.forname()
+
+Class c1 = Class.forName("ClassObjectCreation");
+
+/2- By using a process called getClass()
+
+ClassObjectCreation Obj = new creation of ClassObject();
+
+The c2 class = Obj.getClass();
+
+/3- By using the .class function
+
+ClassObjectCreation.class; Class c3=
+
+}
+
+}
+
+The following example illustrates various ways of constructing class objects:
+
+----------------------------Example 1:
+
+#How to Receive Class Metadata
+
+The example below shows how to get metadata. This includes class name, superclass name, implemented interfaces, and modifiers of class access. We're going to get the metadata from the class below, named Base.class:
+
+Java.io: Permanent & Contract Remote Work..Serializable import;
+
+The Base public abstract class implements Serializable,Cloneable {
+
+}
+
+The name of the class is as follows: Base
+
+Access modifiers are the following: public and abstract.
+
+Interfaces have been implemented: Serializable and Cloneable.
+
+Since no class has been expressly expanded, it is a superclass: java.lang.Object.
+
+The following class will get the Base.class meta data and print it out.
+
+The java.lang.reflect.Modifier import;
+
+GetclassMetaData public class {
+
+ClassNotFoundException is thrown by the public static void main (String [] args) {
+
+/ Build an object class for Base.class.
+
+ClassObj class = Base.class;
+
+/ Print the class's name
+
+The system.out.println("Name of the class is : " +ClassObj.getName());
+
+/ Print Name of Super Class
+
+System.out.println('The super class name is:' +ClassObj.getSuperclass().getName());;'
+
+/ Get a list of implemented interfaces using the getInterface() method in the form of a class array.
+
+InterfaceList = classObj.getInterfaces();; class[]
+
+/ Print the interfaces implemented using foreach loop
+
+system.out.print("Implemented interfaces are : ");;
+
+For (class1 class: max10 InterfaceList) {
+
+system.out.print class1.getName()+" ");;
+
+}
+
+The.out.println() system;;
+
+/Get control modifiers using the get function Modifiers() and the java.lang.reflect.Modifier class toString() method.
+
+AccessModifier= classObj.getModifiers();); int
+
+/ Print permission modifiers for access
+
+System.Out.println('Class access modifiers are:' +Modifier.tostring(AccessModifier));' access modifiers are:
+
+}
+
+}
+
+Using the getName method to print the name of the class
+
+Print the superclass name with the method getSuperClass().getName()
+
+Print the name of the interfaces implemented
+
+Print the access modifiers that are being used by the class
+
+Example 2:
+
+#How to Get Variable Metadata
+
+The following examples illustrate how to get variable metadata:
+
+Here, we are building a class with some variables called VariableMetaData .class:
+
+of the package;
+
+VariableMetaData Public Class {
+
+IntVar1=1111; public static int;
+
+IntVar2=2222 static int;
+
+StringVar1='.com' static String;
+
+StringVar2= "Learning Reflection API" static string;
+
+}
+
+Steps to get the metadata in the above class about the variables.
+
+Build a class object for the class above, i.e. VariableMetaData.class as shown below.
+
+VariableMetaData ClassVar = new VariableMetaData();
+
+ClassObjVar Class = ClassVar.getClass();
+
+Using the getFields() or getDeclaredFields() methods to get metadata in the form of a field array, as below.
+
+Field[] Field1= .getFields();; ClassObjVar;
+
+Field[] Fiel2= .getDeclaredFields(); ClassObjVar;
+
+The getFields() method returns public variable metadata from both the specified class and its super-class.
+
+The method getDeclaredFields() returns only the metadata of all the variables in the specified class.
+
+To get the name of the variables, use the 'public String getName()' method.
+
+Use the 'public class getType()' method to get the data type of the variables.
+
+Here, xxx could be a byte of any sort of value we want to get, or a short one.
+
+Get the variables' control modifiers using the methods getModifier() and Modifier.toString(int I
+
+In order to get the metadata of the variables present in the VariableMetaData .class: class, we are writing a class here java online training.
+
+of the package;
+
+The java.lang.reflect.Field import;
+
+VariableMetaDataTest Public Class {
+
+The main(String[] args) public static void throws IllegalArgumentException, IllegalAccessException, IllegalAccessException {
+
+/ Build a VariableMetaData.class Class object for
+
+VariableMetaData ClassVar = New VariableMetaData();
+
+ClassObjVar Class = ClassVar.getClass();
+
+/ Get metadata for all of the fields in the VariableMetaData class
+
+Field1= ClassObjVar.getDeclaredFields();; Field[]
+
+/ Print the name, type of data, access modifier, and variable values of the specified class.
+
+For(Field field: Field1) {Field field1) {
+
+System.out.println("Name of variable: "+field.getName());;;"
+
+System.out.println("Datatypes of the variable :"+field.getType());
+
+= field.getModifiers(); int AccessModifiers;
+
+System.out.printlln("Access Modifiers of the variable : "+Modifier.toString(AccessModifiers)););
+
+(Value of the variable: "+field(classVar)) " System.out.println(
+
+System.out.println();;();()
+
+System.out.println('*******************************************************************************);**********)
+
+}
+
+}
+
+}
+
+Object Class Generated for VariableMetaData.class
+
+Got all the variables' metadata in the Field array
+
+All variable names in the class VariableMetaData.class have been printed.
+
+Printed all of the variables' data types in the VariableMetaData.class class
+
+Next, Printed all of the variables' control modifiers in the VariableMetaData.class class
+
+Printed values of all variables in the VariableMetaData.class All variable data types in the VariableMetaData.class
+
+--------------Example 3:
+
+How to get the Method Metadata
+
+The following examples illustrate how to obtain a method's metadata:
+
+Here, we are building a class called MethodMetaData .class with some methods
+
+of the package;
+
+Java.sql.SQLException import;
+
+MethodMetaData public class {
+
+Private Void Add Public Void Add (int firstElement, int secondElement, String result)
+
+ClassNotFoundException, ClassCastException{ throws,
+
+System.out.println("Demo ex: for Reflection API");
+
+}
+
+Public of String99Search (String searchString)
+
+Throws ArithmeticException, ExceptionInterrupted{
+
+System.out.println("Demo method for Reflection API");
+
+Null Return;
+
+}
+
+The of the Public Void99Delete (String deleteString)
+
+Launches SQLException{
+
+System.out.println("Demo method for Reflection API");
+
+}
+
+}
+
+Steps to acquire metadata about the methods in the class above.
+
+Build a class object for the class above, i.e. As below, MethodMetaData.class:
+
+MetaDataMethod ClassVar = new MetaDataMethod();
+
+ClassObjVar Class = ClassVar.getClass();
+
+Using getMethods() and getDeclaredMethods() methods, get method details in the Method list as below.
+
+Approach[] Approach 1= ClassObjVar .get Approach();
+
+Procedure [] Procedure 2= ClassObjVar .getDeclared Procedure s();;
+
+-------------Example 4:
+
+How to Get Constructors' Metadata
+
+The following examples illustrate how to obtain constructors' metadata.
+
+Here, with various builders, we are developing a class called Constructor.class:
+
+the package;
+
+java.rmi.RemoteException import;
+
+Java.sql.SQLException import;
+
+The Constructor public class {
+
+Public Constructor(int no) throws ArithmeticException{ }, ClassCastException,
+
+RemoteException,SQLException{ } throws public Constructor(int no, String name)
+
+Constructor(int no, Name of string, Address of string) throws InterruptedException{ }
+
+}
+
+Here, in order to get the metadata of the constructors existing within the Constructor.class, we have written a class.
+
