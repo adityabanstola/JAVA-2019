@@ -1,0 +1,253 @@
+Q.NO-------1.
+
+class ConstructorDemo{
+
+    // ConstructorDemo(){ //no arguments constructor
+    //     System.out.println("Inside Default Constructor");
+    // }
+
+    // ConstructorDemo(int a){ // parameterized constructor 
+    //     System.out.println("The value of a is " + a);
+    // }
+
+    int a = 7;
+    
+
+}
+class Main{
+
+    public static void main(String[] args){
+
+        // ConstructorDemo obj = new ConstructorDemo(); // no arguments constructor
+        // ConstructorDemo obj = new ConstructorDemo(7); // parameterized
+        ConstructorDemo obj = new ConstructorDemo(); // default
+        System.out.println("Value of a is " + obj.a);
+
+    }
+}
+
+Q.NO-------2.
+class StackImplementation{
+
+    int top;
+    int arr[];
+
+    
+    StackImplementation(){
+        top = -1;
+        arr = new int[5];
+
+    }
+
+    boolean isFull(){
+        if(top == 5){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    boolean isEmpty(){
+        if(top == -1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    void push(int val){
+        top++;
+        arr[top] = val;
+        System.out.println("Value " + val + "sucessfully inserted at " + top + "position");
+    }
+
+    int pop(){
+        int val = arr[top];
+        top--;
+        return val;
+    }
+}
+import java.util.Scanner;
+
+class Main{
+
+    public static void main(String[] args){
+
+        Scanner reader = new Scanner(System.in); 
+
+        StackImplementation stack = new StackImplementation();
+
+        int option = 5, val;
+        while(option != 0){
+            
+            System.out.println("0. To exit the program. ");
+            System.out.println("1. To check if stack is empty. ");
+            System.out.println("2. To check if stack is full. ");
+            System.out.println("3. To insert an element in the stack");
+            System.out.println("4. To remove an element from the stack");
+            option = reader.nextInt();
+
+            switch(option){
+                case 0: 
+                    break;
+                case 1:
+                    if(stack.isEmpty()){
+                        System.out.println("Stack is empty");
+                    }else{
+                        System.out.println("Stack is not empty");
+                    }
+                    break;
+                case 2:
+                    if(stack.isFull()){
+                        System.out.println("Stack is full");
+                    }else{
+                        System.out.println("Stack is not full");
+                    }
+                    break;
+                case 3: 
+                    System.out.println("Enter the integer you want to push in the array");
+                    val = reader.nextInt();
+                    stack.push(val);
+                    break;
+                case 4: 
+                    System.out.println("Item " + stack.pop() + " removed from the stack");
+                    break;
+                default:
+                    System.out.println("Choose the operations you want to perform: ");
+            }
+        }
+    }
+}
+
+
+
+Q.NO-------3.
+
+abstract class Animal{
+	abstract void eat();
+	abstract void sleep();
+}
+class Cat extends Animal{
+	void eat(){
+		System.out.println("Cat is eating");
+	}
+	void sleep(){
+ 
+		System.out.println("Cat is sleeping");
+	}
+}
+class MyAnimal{
+	public static void main(String[] args){
+		Animal cat = new Cat();
+		cat.eat();
+		cat.sleep();
+	}
+}
+
+
+Q.NO-------4.
+abstract class Bird{
+	abstract void eat();
+}
+class MultipleInheritance{
+	public static void main(String[] args){
+		Parrot parrot = new Parrot();
+		parrot.eat();
+		parrot.poop();
+	}
+}
+class Parrot extends Bird implements Poop{
+	public void eat(){
+		System.out.println("Bird is eating");
+	}
+	public void poop(){
+		System.out.println("pooped");
+	}
+}
+interface Poop{
+	public void poop();
+}
+
+
+Q.NO--------5.
+
+class CommandLineArg{
+	public static void main(String[] args){
+		if(args.length ==2){
+			int num1,num2;
+			num1 = Integer.parseInt(args[0]);
+			num2 = Integer.parseInt(args[1]);
+
+			System.out.println("Sum: "+(num1+num2));
+			System.out.println("Difference: "+(num1-num2));
+		}else{
+			System.out.println("Enter any two integers");
+		}
+	}
+}
+
+
+Q.NO-------6.
+class Animal{
+	String name;
+	Animal(String name){
+		this.name = name;
+	}
+}
+class Demo{
+	public static void main(String[] args){
+		Dog dog = new Dog("Bob");
+		dog.getName();
+	}
+}
+
+class Dog extends Animal{
+	String name;
+	Dog(String name){
+		super(name);
+		this.name = name;
+	}
+	void getName(){
+		System.out.println("Dog's name: "+name);
+		System.out.println("Animal's name: "+super.name);
+	}
+}
+
+
+Q.NO-------7.
+
+class Calculator implements Calculus{
+	
+}
+interface Calculus{
+	default void add(){
+		System.out.println("Addition done");
+	}
+}
+class Main{
+	public static void main(String[] args){
+		Calculator calculator = new Calculator();
+		calculator.add();
+	}
+}
+
+
+Q.NO-------8.
+
+
+class Count{
+	static int counter = 0;
+	Count(){
+		counter++;
+	}
+}
+
+class StaticDemo{
+	public static void main(String[] args){
+		Count count1 = new Count();
+		Count count2 = new Count();
+		Count count3 = new Count();
+		Count count4 = new Count();
+		System.out.println(Count.counter);
+	}
+}
